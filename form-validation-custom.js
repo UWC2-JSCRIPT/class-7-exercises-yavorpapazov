@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		firstNameIsValid = firstName.value.length >= 3
 		if(!firstNameIsValid) {
 			firstName.classList.add('invalid')
-			firstNameMsg.textContent = `Please use more than 3 characters. Number of characters is ${firstName.value.length}`
+			firstNameMsg.textContent = `Please use 3 or more characters!. Number of characters is ${firstName.value.length}`
 		} else {
 			firstName.classList.remove('invalid')
 			firstNameMsg.textContent = ''
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		lastNameIsValid = lastName.value.length >= 3
 		if(!lastNameIsValid) {
 			lastName.classList.add('invalid')
-			lastNameMsg.textContent = `Please use more than 3 characters. Number of characters is ${lastName.value.length}`
+			lastNameMsg.textContent = `Please use 3 or more characters!. Number of characters is ${lastName.value.length}`
 		} else {
 			lastName.classList.remove('invalid')
 			lastNameMsg.textContent = ''

@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let form = document.querySelector('#connect-form')
     firstName.addEventListener('input', (e) => {
         if(firstName.validity.tooShort) {
-            firstName.setCustomValidity("Please, use more than 3 characters!")
+            firstName.setCustomValidity("Please use 3 or more characters!")
             firstName.reportValidity()
         } else {
             firstName.setCustomValidity("")
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     })
     lastName.addEventListener('input', (e) => {
         if(lastName.validity.tooShort) {
-            lastName.setCustomValidity("Please, use more than 3 characters!")
+            lastName.setCustomValidity("Please use 3 or more characters!")
             lastName.reportValidity()
         } else {
             lastName.setCustomValidity("")
