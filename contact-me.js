@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", function() {
     let email = document.querySelector('#email')
     let message = document.querySelector('#your-message')
     let form = document.querySelector('#connect-form')
+    let jobTitle = document.querySelector('#job-title')
+    let website = document.querySelector('#website')
     selectContactReason.addEventListener('change', () => {
         if(selectContactReason.value === 'opportunity') {
             divJobTitle.classList.remove('disable')
@@ -45,23 +47,38 @@ document.addEventListener("DOMContentLoaded", function() {
     })
     form.addEventListener('submit', (e) => {
         e.preventDefault()
-        if(yourName.validity.tooShort) {
+        if(yourName.validity.tooShort || yourName.validity.valueMissing) {
             yourName.nextElementSibling.textContent = 'Please correct your Name input!'
         }
-        if(!yourName.validity.tooShort) {
+        if(!yourName.validity.tooShort && !yourName.validity.valueMissing) {
             yourName.nextElementSibling.textContent = ''
         }
-        if(email.validity.typeMismatch) {
+        if(email.validity.typeMismatch || email.validity.valueMissing) {
             email.nextElementSibling.textContent = 'Please correct your Email input!'
         }
-        if(!email.validity.typeMismatch) {
+        if(!email.validity.typeMismatch && !email.validity.valueMissing) {
             email.nextElementSibling.textContent = ''
         }
-        if(message.validity.tooShort) {
+        if(message.validity.tooShort || message.validity.valueMissing) {
             message.nextElementSibling.textContent = 'Please correct your Message input!'
         }
-        if(!message.validity.tooShort) {
+        if(!message.validity.tooShort && !message.validity.valueMissing) {
             message.nextElementSibling.textContent = ''
+        }
+        if(jobTitle.validity.valueMissing && !divJobTitle.classList.contains('disable')) {
+            jobTitle.nextElementSibling.textContent = 'Please correct your Job title input!'
+        }
+        if(!jobTitle.validity.valueMissing && !divJobTitle.classList.contains('disable')) {
+            jobTitle.nextElementSibling.textContent = ''
+        }
+        if(!website.validity.valid && !divWebsite.classList.contains('disable')) {
+            website.nextElementSibling.textContent = 'Please correct your Company website input!'
+        } 
+        if(website.validity.valueMissing && !divWebsite.classList.contains('disable')) {
+            website.nextElementSibling.textContent = 'Please correct your Company website input!'
+        }
+        if(website.validity.valid && !website.validity.valueMissing && !divWebsite.classList.contains('disable')) {
+            website.nextElementSibling.textContent = ''
         }
     })
 })
