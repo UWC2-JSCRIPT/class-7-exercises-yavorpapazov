@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let form = document.querySelector('#connect-form')
     let jobTitle = document.querySelector('#job-title')
     let website = document.querySelector('#website')
+    let selectCodingLanguage = document.querySelector('#coding-language')
     selectContactReason.addEventListener('change', () => {
         if(selectContactReason.value === 'opportunity') {
             divJobTitle.classList.remove('disable')
@@ -80,5 +81,12 @@ document.addEventListener("DOMContentLoaded", function() {
         if(website.validity.valid && !website.validity.valueMissing && !divWebsite.classList.contains('disable')) {
             website.nextElementSibling.textContent = ''
         }
+        if(selectCodingLanguage.validity.valueMissing && !divCodingLanguage.classList.contains('disable')) {
+            selectCodingLanguage.nextElementSibling.textContent = 'Please correct your Coding language input!'
+        }
+        if(!selectCodingLanguage.validity.valueMissing && !divCodingLanguage.classList.contains('disable')) {
+            selectCodingLanguage.nextElementSibling.textContent = ''
+        }
+        console.log(selectCodingLanguage.validity)
     })
 })
