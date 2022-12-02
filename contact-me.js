@@ -87,6 +87,5 @@ document.addEventListener("DOMContentLoaded", function() {
         if(!selectCodingLanguage.validity.valueMissing && !divCodingLanguage.classList.contains('disable')) {
             selectCodingLanguage.nextElementSibling.textContent = ''
         }
-        console.log(selectCodingLanguage.validity)
     })
 })
